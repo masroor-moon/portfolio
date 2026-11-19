@@ -8,6 +8,7 @@
                <li><a href="#education">Education</a></li>
                <li><a href="#projects">Projects</a></li>
                <li><a href="#roadmap">Roadmap</a></li>
+               <li><a href="#journal">Journal</a></li>
                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
@@ -129,6 +130,18 @@
                 </tbody>
             </table>
         </section>
+
+    <section id="journal">
+        <h2>Learning Journal</h2>
+        <article>
+            <h3>Reading Linux login logs</h3>
+            <p><time datetime="2026-11-14">14 November 2026</time> | Topic: Linux logs</p>
+            <p><strong>What I learned:</strong> Linux keeps a record of login attempts in the file /var/log/auth.log. With the command "sudo tail -n 20 /var/log/auth.log" I could read the last 20 lines and see failed password checks followed by a successful login. I also learned that "grep" can search a log file for a keyword, which helps find failed logins quickly.</p>
+            <p><strong>Challenge:</strong> My first search, grep "authentication failure", showed only my own sudo commands and not real failed logins. The log also records the commands I type, so my search was finding itself.</p>
+            <p><strong>How I solved it:</strong> I ran "sudo -k" so that sudo would ask for my password again, and then entered three wrong passwords on purpose. After that I used grep "authentication failure" together with grep -v "COMMAND=" to remove my own command lines. This showed a real failed sudo login at 14:43.</p>
+            <p><strong>What I could improve:</strong> I expected three lines for three wrong attempts but saw only one. My guess is that sudo records the three attempts together in a separate line, and my filter removed it, but I have not confirmed this yet. Next time I will also search for "incorrect password" and compare both results.</p>
+        </article>
+    </section>    
 
         <section id="contact">
             <h2>Contact</h2>
