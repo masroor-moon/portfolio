@@ -141,6 +141,14 @@
             <p><strong>How I solved it:</strong> I ran "sudo -k" so that sudo would ask for my password again, and then entered three wrong passwords on purpose. After that I used grep "authentication failure" together with grep -v "COMMAND=" to remove my own command lines. This showed a real failed sudo login at 14:43.</p>
             <p><strong>What I could improve:</strong> I expected three lines for three wrong attempts but saw only one. My guess is that sudo records the three attempts together in a separate line, and my filter removed it, but I have not confirmed this yet. Next time I will also search for "incorrect password" and compare both results.</p>
         </article>
+        <article>
+    <h3>Fixing a broken menu link</h3>
+    <p><time datetime="2026-11-20">20 November 2026</time> | Topic: HTML links</p>
+    <p><strong>What I learned:</strong> A link to a section on the same page needs a # sign before the id, for example href="#education". The id on the section and the name in the link must match exactly.</p>
+    <p><strong>Challenge:</strong> When I clicked Education in my menu, the browser showed "Cannot GET /education" instead of moving to the Education section.</p>
+    <p><strong>How I solved it:</strong> I checked the menu code and found that the # sign was missing, so the browser was looking for a separate page called /education. After I got an explanation from an AI tutor and added the # sign, the link worked. I tested it again by clicking it, and then saved the fix as a new commit on GitHub.</p>
+    <p><strong>What I could improve:</strong> I pushed the mistake to GitHub before testing it. From now on I will click every new menu link in the browser before I commit.</p>
+</article>
     </section>    
 
         <section id="contact">
